@@ -1,88 +1,52 @@
+import { useEffect, useState } from 'react';
 import { BsCartPlus } from "react-icons/bs";
+
+import { api } from '../../services/api'; 
+
+
+interface ProductProps {
+    id: number;
+    title: string;
+    description: string;
+    price: number;
+    cover: string;
+}
 
 
 export function Home() {
+    const [products, setProducts] = useState<ProductProps[]>([]);
+
+    useEffect(() => {
+        async function getProducts() {
+            const products = await api.get('/products');
+            setProducts(products.data);
+        }
+
+        getProducts();
+    }, [])
+
+
     return(
         <main className='w-full max-w-6xl mx-auto my-3'>
             <h1 className='font-bold p-10 text-xl text-center'>Produtos em alta</h1>
-            <div className='flex gap-12 flex-wrap'>
-                <section className='flex flex-col w-56 max-md:w-40'>
-                    <img src="https://d1sfzvg6s5tf2e.cloudfront.net/Custom/Content/Products/49/95/4995_fone-airpods-pro-magsafe-mqd83am-2nd-imp_m1_638072372640312793.jpg" alt="Logo do produto" 
-                    className='w-full'/>
-                    <p className='font-medium text-center'>Airpods apple, com Estojo de Recarga, Bluetooth</p>
-                    <div className='mt-1 flex gap-2'>
-                        <p className='font-medium text-gray-700 ml-1'>R$ 179,90</p>
-                        <button className='bg-slate-900 p-1 rounded-lg'>
-                            <BsCartPlus size={20} color='#fff'/>
-                        </button>
-                    </div>
-                </section>
-                <section className='flex flex-col w-56 max-md:w-40'>
-                    <img src="https://d1sfzvg6s5tf2e.cloudfront.net/Custom/Content/Products/49/95/4995_fone-airpods-pro-magsafe-mqd83am-2nd-imp_m1_638072372640312793.jpg" alt="" 
-                    className='w-full'/>
-                    <p className='font-medium text-center'>Airpods apple, com Estojo de Recarga, Bluetooth</p>
-                    <div className='mt-1 flex gap-2'>
-                        <p className='font-medium text-gray-700 ml-1'>R$ 179,90</p>
-                        <button className='bg-slate-900 p-1 rounded-lg'>
-                            <BsCartPlus size={20} color='#fff'/>
-                        </button>
-                    </div>
-                </section>
-                <section className='flex flex-col w-56 max-md:w-40'>
-                    <img src="https://d1sfzvg6s5tf2e.cloudfront.net/Custom/Content/Products/49/95/4995_fone-airpods-pro-magsafe-mqd83am-2nd-imp_m1_638072372640312793.jpg" alt="" 
-                    className='w-full'/>
-                    <p className='font-medium text-center'>Airpods apple, com Estojo de Recarga, Bluetooth</p>
-                    <div className='mt-1 flex gap-2'>
-                        <p className='font-medium text-gray-700 ml-1'>R$ 179,90</p>
-                        <button className='bg-slate-900 p-1 rounded-lg'>
-                            <BsCartPlus size={20} color='#fff'/>
-                        </button>
-                    </div>
-                </section>
-                <section className='flex flex-col w-56 max-md:w-40'>
-                    <img src="https://d1sfzvg6s5tf2e.cloudfront.net/Custom/Content/Products/49/95/4995_fone-airpods-pro-magsafe-mqd83am-2nd-imp_m1_638072372640312793.jpg" alt="" 
-                    className='w-full'/>
-                    <p className='font-medium text-center'>Airpods apple, com Estojo de Recarga, Bluetooth</p>
-                    <div className='mt-1 flex gap-2'>
-                    <p className='font-medium text-gray-700 ml-1'>R$ 179,90</p>
-                        <button className='bg-slate-900 p-1 rounded-lg'>
-                            <BsCartPlus size={20} color='#fff'/>
-                        </button>
-                    </div>
-                </section>
-                <section className='flex flex-col w-56 max-md:w-40'>
-                    <img src="https://d1sfzvg6s5tf2e.cloudfront.net/Custom/Content/Products/49/95/4995_fone-airpods-pro-magsafe-mqd83am-2nd-imp_m1_638072372640312793.jpg" alt="" 
-                    className='w-full'/>
-                    <p className='font-medium text-center'>Airpods apple, com Estojo de Recarga, Bluetooth</p>
-                    <div className='mt-1 flex gap-2'>
-                        <p className='font-medium text-gray-700 ml-1'>R$ 179,90</p>
-                        <button className='bg-slate-900 p-1 rounded-lg'>
-                            <BsCartPlus size={20} color='#fff'/>
-                        </button>
-                    </div>
-                </section>
-                <section className='flex flex-col w-56 max-md:w-40'>
-                    <img src="https://d1sfzvg6s5tf2e.cloudfront.net/Custom/Content/Products/49/95/4995_fone-airpods-pro-magsafe-mqd83am-2nd-imp_m1_638072372640312793.jpg" alt="" 
-                    className='w-full'/>
-                    <p className='font-medium text-center'>Airpods apple, com Estojo de Recarga, Bluetooth</p>
-                    <div className='mt-1 flex gap-2 ml-1'>
-                        <p className='font-medium text-gray-700 ml-1'>R$ 179,90</p>
-                        <button className='bg-slate-900 p-1 rounded-lg'>
-                            <BsCartPlus size={20} color='#fff'/>
-                        </button>
-                    </div>
-                </section>
-                <section className='flex flex-col w-56 max-md:w-40'>
-                    <img src="https://d1sfzvg6s5tf2e.cloudfront.net/Custom/Content/Products/49/95/4995_fone-airpods-pro-magsafe-mqd83am-2nd-imp_m1_638072372640312793.jpg" alt="" 
-                    className='w-full'/>
-                    <p className='font-medium text-center'>Airpods apple, com Estojo de Recarga, Bluetooth</p>
-                    <div className='mt-1 flex gap-2'>
-                        <p className='font-medium text-gray-700 ml-1'>R$ 179,90</p>
-                        <button className='bg-slate-900 p-1 rounded-lg'>
-                            <BsCartPlus size={20} color='#fff'/>
-                        </button>
-                    </div>
-                </section>
+            <div className='flex gap-12 mx-14 flex-wrap max-rl:justify-center'>
+                {products.map(product => (
+                        <section className='flex flex-col w-56 max-md:w-40' key={product.id}>
+                            <img src={product.cover} alt={product.title} 
+                            className='w-full max-h-64 rounded-xl'/>
+                            <p className='font-medium text-center mt-1'>{product.title}</p>
+                            <div className='mt-2 flex gap-2 items-center'>
+                                <p className='font-medium text-gray-700 ml-1'>{product.price.toLocaleString('pt-br', {
+                                    style: 'currency',
+                                    currency: 'BRL'
+                                })}</p>
+                                <button className='bg-slate-900 p-1 rounded-lg'>
+                                    <BsCartPlus size={20} color='#fff'/>
+                                </button>
+                            </div>
+                        </section>
+                    ))
+                }
             </div>
         </main>
     )

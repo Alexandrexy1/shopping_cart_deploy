@@ -13,11 +13,11 @@ export function Cart() {
                     className='w-28'/>
                     <b>R$ 199,90</b>
                     <div className='flex gap-3'>
-                        <button className='bg-slate-800 text-white rounded-md flex justify-center items-center p-1'>
+                        <button className='bg-slate-600 hover:bg-slate-700 text-white rounded-md flex justify-center items-center p-1'>
                             <CgMathMinus size={20}/>
                         </button>
                         <span>1</span>
-                        <button className='bg-slate-800 text-white rounded-md flex justify-center items-center p-1'>
+                        <button className='bg-slate-600 hover:bg-slate-700 text-white rounded-md flex justify-center items-center p-1'>
                             <CgMathPlus size={20}/>
                         </button>
                     </div>
