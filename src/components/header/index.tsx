@@ -10,7 +10,7 @@ export function Header() {
     return(
         <header className='bg-slate-200 w-full px-1'>
             <nav className='flex flex-row justify-between items-center h-14 px-5 mx-auto w-full max-w-6xl'>
-                <Link to='/' className='text-2xl font-bold'>Alex Shop</Link>
+                <Link to='/' className='text-2xl font-bold'>Product Shop</Link>
                 <Link to='/cart' className='flex flex-col items-end relative'>
                     {
                         amount > 0 && (

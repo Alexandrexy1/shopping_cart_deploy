@@ -6,10 +6,15 @@ import CartProvider from './context/products.tsx';
 import { router } from './App.tsx';
 import './index.css';
 
+import { Toaster } from 'react-hot-toast';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <CartProvider>
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+      />
       <RouterProvider router={router}/>
     </CartProvider>
   </React.StrictMode>,

@@ -4,6 +4,7 @@ import { BsCartPlus } from "react-icons/bs";
 import { CartContext } from '../../context/products';
 import { api } from '../../services/api'; 
 
+import toast from 'react-hot-toast';
 
 export default interface ProductProps {
     id: number;
@@ -28,6 +29,12 @@ export function Home() {
     }, [])
 
 
+    function handleAddProduct(product: ProductProps) {
+        toast.success('Produto adicionado ao carrinho');
+        addProduct(product);
+    }
+
+
     return(
         <main className='w-full max-w-6xl mx-auto my-3'>
             <h1 className='font-bold p-10 text-xl text-center'>Produtos em alta</h1>
@@ -42,7 +49,7 @@ export function Home() {
                                     style: 'currency',
                                     currency: 'BRL'
                                 })}</p>
-                                <button className='bg-slate-900 p-1 rounded-lg' onClick={() => addProduct(product)}>
+                                <button className='bg-slate-900 p-1 rounded-lg' onClick={() => handleAddProduct(product)}>
                                     <BsCartPlus size={20} color='#fff'/>
                                 </button>
                             </div>
