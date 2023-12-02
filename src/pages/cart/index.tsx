@@ -31,12 +31,12 @@ export function Cart() {
                             <img src={product.cover} alt={product.title}
                             className='w-28'/>
                         </Link>
-                        <b>Preço: {product.price.toLocaleString('pt-br', {
+                        <b className='max-md:text-sm'>Preço: {product.price.toLocaleString('pt-br', {
                             style: 'currency',
                             currency: 'BRL'
                         })}
                         </b>
-                        <div className='flex gap-3'>
+                        <div className='flex gap-3 mx-3'>
                             <button className='bg-slate-600 hover:bg-slate-700 text-white rounded-md flex justify-center items-center p-1'
                                 onClick={() => handleRemoveProduct(product)}>
                                 <CgMathMinus size={20}/>
@@ -47,7 +47,7 @@ export function Cart() {
                                 <CgMathPlus size={20}/>
                             </button>
                         </div>
-                        <b>SubTotal: {product.total.toLocaleString('pt-br', {
+                        <b className='max-md:text-sm'>SubTotal: {product.total.toLocaleString('pt-br', {
                             style: 'currency',
                             currency: 'BRL'
                         })}</b>

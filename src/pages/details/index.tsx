@@ -26,17 +26,17 @@ export function Details() {
     return(
         <div className='w-full max-w-6xl mx-auto my-16'>
             { product && (
-                <div className='flex gap-24 mx-28 flex-wrap items-center max-rl:justify-center'>
-                    <img src={product.cover} alt={product.title} className='w-72' />
-                    <div className='w-7/12'>
+                <div className='flex gap-24 max-rl:gap-10  mx-28 max-lg:mx-6 flex-wrap items-center max-rl:justify-center'>
+                    <img src={product.cover} alt={product.title} className='w-72 max-lg:w-56' />
+                    <div className='w-7/12 max-md:w-full'>
                         <h1 className='font-bold mb-5 text-xl'>{product.title}</h1>
-                        <p>{product.description}</p>
+                        <p className=''>{product.description}</p>
                         <div className='flex items-center gap-3 mr-1'>
                             <span className='font-semibold  text-gray-800'>
                                 {product.price.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}
                             </span>
                             <Link to='/cart'>
-                                <button className='bg-slate-900 p-1 rounded-lg' onClick={() => handleAddProduct(product)}>
+                                <button className='bg-slate-900 p-1 rounded-lg mt-2' onClick={() => handleAddProduct(product)}>
                                         <BsCartPlus size={20} color='#fff'/>
                                 </button>
                             </Link>
