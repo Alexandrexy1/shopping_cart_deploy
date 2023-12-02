@@ -41,9 +41,9 @@ export function Home() {
                         <section className='flex flex-col w-56 max-md:w-64' key={product.id}>
                             <Link to={`/details/${product.id}`}>
                                 <img src={product.cover} alt={product.title} 
-                                    className='w-11/12 max-h-64 rounded-xl hover:w-full cursor-pointer'/>
+                                    className='w-full max-h-60 rounded-xl cursor-pointer'/>
                             </Link>
-                            <p className='font-medium text-center mt-1'>{product.title}</p>
+                            <p className='font-medium mt-1'>{product.title}</p>
                             <div className='mt-2 flex gap-2 items-center'>
                                 <p className='font-medium text-gray-700 ml-1'>
                                     {product.price.toLocaleString('pt-br', {
